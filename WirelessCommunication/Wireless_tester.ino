@@ -10,7 +10,8 @@ void setup() {
 
 void loop() {
   count++;
-  locationData = "L:" + (String)count;
+  delay(1000);
+  locationData = "X:" + (String)count +"\t"+ "Y:" + (String)(32767-count);
   wiCom.data_Transmit (locationData);
 }
 
