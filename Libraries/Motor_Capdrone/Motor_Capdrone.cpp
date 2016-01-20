@@ -3,12 +3,12 @@
 */
 
 #include "Arduino.h"
-#include "Motorctrl.h"
+#include "Motor_Capdrone.h"
 
 
 
 
-Motorctrl :: Motorctrl() {
+Motor :: Motor() {
     #define M1A 22
     #define M1B 23
     #define M2A 24
@@ -25,7 +25,7 @@ Motorctrl :: Motorctrl() {
 
 
 
-void Motorctrl :: motor_Setup(){
+void Motor :: motor_Setup(){
     pinMode(M1A, OUTPUT);
     pinMode(M1B, OUTPUT);
     pinMode(M2A, OUTPUT);
@@ -35,7 +35,7 @@ void Motorctrl :: motor_Setup(){
     pinMode(M4A, OUTPUT);
     pinMode(M4B, OUTPUT);
 }
-void Motorctrl :: move_Forward(unsigned int x){
+void Motor :: move_Forward(unsigned int x){
   if (x > 255)
    x=255;
    digitalWrite(M1A,HIGH);
@@ -51,7 +51,7 @@ void Motorctrl :: move_Forward(unsigned int x){
    digitalWrite(M4B,LOW);
    analogWrite(END,x);
 }
-void Motorctrl :: move_Backward(unsigned int x){
+void Motor :: move_Backward(unsigned int x){
   if (x > 255)
     x=255;
    digitalWrite(M1A,LOW);
@@ -68,7 +68,7 @@ void Motorctrl :: move_Backward(unsigned int x){
    analogWrite(END,x);
 }
 
-void Motorctrl :: turn_Right(unsigned int x){
+void Motor :: turn_Right(unsigned int x){
   if (x > 255)
     x=255;
    digitalWrite(M1A,HIGH);
@@ -85,7 +85,7 @@ void Motorctrl :: turn_Right(unsigned int x){
    analogWrite(END,x);
 }
 
-void Motorctrl :: turn_Left(unsigned int x){
+void Motor :: turn_Left(unsigned int x){
   if (x > 255)
     x=255;
    digitalWrite(M1A,LOW);
@@ -102,7 +102,7 @@ void Motorctrl :: turn_Left(unsigned int x){
    analogWrite(END,x);
 }
 
-void Motorctrl :: freeze(){
+void Motor :: freeze(){
   analogWrite(ENA,0);
   analogWrite(ENB,0);
   analogWrite(ENC,0);

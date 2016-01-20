@@ -1,23 +1,22 @@
 /*
   motorctrl.h - Library for control the chassis.
 */
-#ifndef Motorctrl_h
-#define Motorctrl_h
+#ifndef Motor_Capdrone_h
+#define Motor_Capdrone_h
 
 #include "Arduino.h"
 
-class Motorctrl
+class Motor
 {
   public:
-    Motorctrl(void);
+    Motor(void);
     void motor_Setup(void);
     void move_Forward(unsigned int x);
     void move_Backward(unsigned int x);
     void turn_Right(unsigned int x);
     void turn_Left(unsigned int x);
     void freeze();
-  private:
-    int M1A;
+
 };
 
 #endif
